@@ -1,24 +1,23 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-const routes: Routes = [
-  {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
-  },
-  {
-    path: 'supplylink',
-    loadChildren: () => import('./supplylink/supplylink.module').then((m) => m.SupplyLinkModule),
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/auth',  // Redirect to 'auth' route by default
-  }
-];
+import { SupplyLinkRoutingModule } from "./supplylink-routing.module";
+import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { ProductComponent } from "./components/product/product.component";
+import { SupplierComponent } from "./components/supplier/supplier.component";
+import { WarehouseComponent } from "./components/warehouse/warehouse.component";
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  declarations: [],
+  imports: [
+    CommonModule,
+    SupplyLinkRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  exports: [
+    
+  ]
 })
-export class AppRoutingModule {}
+export class SupplyLinkModule {}
